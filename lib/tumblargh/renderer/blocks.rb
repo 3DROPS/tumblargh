@@ -67,8 +67,6 @@ module Tumblargh
         end
       end
 
-
-
       class Video < Post
 
       end

@@ -5,12 +5,14 @@ module Tumblargh
       # Rendered if there is a "previous" page (newer posts) to navigate to.
       class PreviousPage < Base
         def previous_page
+          "/page/1"
         end
       end
 
       # Rendered if there is a "next" page (older posts) to navigate to.
       class NextPage < Base
         def next_page
+          "/page/2"
         end
       end
 
@@ -32,7 +34,7 @@ module Tumblargh
         end
       end
 
-      # {block:JumpPagination length="5"} {/block:JumpPagination} 
+      # {block:JumpPagination length="5"} {/block:JumpPagination}
       # Rendered for each page greater than the current page minus one-half length up to current page plus one-half length.
       class JumpPagination < Base
       end

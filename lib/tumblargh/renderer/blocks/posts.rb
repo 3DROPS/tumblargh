@@ -15,6 +15,10 @@ module Tumblargh
         contextual_tag :caption
 
         def permalink
+          url_path(context.post_url)
+        end
+
+        def perma
           url_path(context.url)
         end
 
@@ -48,10 +52,10 @@ module Tumblargh
         end
 
         def post_for_permalink
-          link = permalink
+          link = perma
 
           context.posts.each do |p|
-            if url_path(p.post_url) == permalink
+            if url_path(p.post_url) == link
               return p
             end
           end
