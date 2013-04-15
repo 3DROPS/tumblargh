@@ -14,6 +14,7 @@ module Tumblargh
         end
 
         def asker_portrait_url(size)
+          "http://assets.tumblr.com/images/default_avatar_#{size}.gif"
         end
       end
     end
