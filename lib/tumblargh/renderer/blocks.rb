@@ -68,7 +68,9 @@ module Tumblargh
       end
 
       class Video < Post
-
+        def should_render?
+          context_post.type == 'video'
+        end
       end
 
 
@@ -237,6 +239,26 @@ module Tumblargh
         def twitter_username
         end
 
+      end
+
+      class LinkOpenTag < Base
+        def should_render?
+          true
+        end
+
+        def render
+          '<a href="#">'
+        end
+      end
+
+      class LinkCloseTag < Base
+        def should_render?
+          true
+        end
+
+        def render
+          '</a>'
+        end
       end
 
 

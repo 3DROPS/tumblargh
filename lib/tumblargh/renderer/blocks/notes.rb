@@ -12,7 +12,7 @@ module Tumblargh
           context_post.note_count || 0
         end
 
-        def post_notes
+        def post_notes(*args)
           buf = ['<ol class="notes">']
 
           # TODO: Support notes with_commentary
@@ -28,17 +28,20 @@ module Tumblargh
             <<-eos
             <li class='#{classes}'>
               <a href="#{note.blog_url}" title="" rel="nofollow">
-                <img src="http://assets.tumblr.com/images/default_avatar_16.gif" class="avatar" alt="">
+                <img src="http://assets.tumblr.com/images/default_avatar_64.gif" class="avatar" alt="">
               </a>
-              
+
               <span class="action">
-                <a href="#{note.blog_url}" title="" rel="nofollow">#{note.blog_name}</a> 
+                <a href="#{note.blog_url}" title="" rel="nofollow">#{note.blog_name}</a>
                 #{action}
               </span>
 
               <div class="clear"></div>
             </li>
             eos
+
+
+
           end.join("\n")
 
           buf << '</ol>'

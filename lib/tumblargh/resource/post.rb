@@ -34,6 +34,10 @@ module Tumblargh
         photos.first.photo_url size
       end
 
+      def video_embed(size=500)
+        return video(size)
+      end
+
       def video(size=500)
         return nil if (player.nil? || player.empty?)
 
