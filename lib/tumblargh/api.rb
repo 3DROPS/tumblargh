@@ -23,7 +23,7 @@ module Tumblargh
 
         query = query.merge(:api_key => api_key).to_query
         url = "#{API_ROOT}#{path}?#{query}"
-        resp = APICache.get(url) { open(url).read }
+        resp = APICache.get(url, period: 0, timeout: 15) { open(url).read }
         ActiveSupport::JSON.decode(resp)['response']
       end
 

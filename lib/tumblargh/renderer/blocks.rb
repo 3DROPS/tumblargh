@@ -261,7 +261,6 @@ module Tumblargh
         end
       end
 
-
       # {block:Likes} {/block:Likes}  Rendered if you are sharing your likes.
       # {Likes} Standard HTML output of your likes.
       # {Likes limit="5"} Standard HTML output of your last 5 likes.
