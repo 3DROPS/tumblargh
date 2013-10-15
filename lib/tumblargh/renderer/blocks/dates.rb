@@ -1,4 +1,5 @@
-# require 'action_view/helpers/date_helper'
+require 'rubygems'
+
 
 module Tumblargh
   module Renderer
@@ -42,7 +43,7 @@ module Tumblargh
         end
 
         def time_ago
-          # ActionView::Helpers::DateHelper::time_ago_in_words(date)
+          #ActionView::Helpers::DateHelper.time_ago_in_words(date)
           "1 day ago"
         end
 

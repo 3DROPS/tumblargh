@@ -69,7 +69,8 @@ module Tumblargh
 
 
 
-      class Video < Photo
+      class Video < Post
+
       end
 
 
@@ -84,6 +85,7 @@ module Tumblargh
       end
 
       class Link < Post
+
       end
 
 
@@ -170,7 +172,7 @@ module Tumblargh
       # Rendered on index (post) pages.
       class IndexPage < Base
         def should_render?
-          ! context.permalink?
+          !context.permalink?
         end
       end
 

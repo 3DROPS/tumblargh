@@ -5,7 +5,7 @@ module Tumblargh
 
       # Needed by renderer for context propagation
       attr_accessor :context
-      
+
       def initialize(attrs={})
         self.attributes = attrs
       end
@@ -14,6 +14,10 @@ module Tumblargh
 
       def attributes=(attrs)
         @attributes = attrs.with_indifferent_access
+      end
+
+      def permalink?
+        context.permalink?
       end
 
       def method_missing(method_symbol, *arguments)

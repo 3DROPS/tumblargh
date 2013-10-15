@@ -41,12 +41,12 @@ module Rack
   private
 
     def permalink?(path)
-      !! path.match(/^\/post\/\d+/)
+      !!path.match(/^\/post\/\d+/)
     end
 
     def should_parse?(status, headers)
-      status == 200 && 
-      headers["Content-Type"] && 
+      status == 200 &&
+      headers["Content-Type"] &&
       headers["Content-Type"].include?("text/html")
     end
 
