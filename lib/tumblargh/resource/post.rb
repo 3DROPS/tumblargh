@@ -21,6 +21,10 @@ module Tumblargh
         @attributes[:title]
       end
 
+      def post_url
+        @attributes[:post_url]
+      end
+
       def date
         @date ||= @attributes[:date].to_time
       end

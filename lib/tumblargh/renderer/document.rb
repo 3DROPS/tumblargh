@@ -7,6 +7,10 @@ module Tumblargh
         options[:permalink] == true
       end
 
+      def url
+        @config[:url]
+      end
+
       # TAGS ----------
       contextual_tag :title
       contextual_tag :description
