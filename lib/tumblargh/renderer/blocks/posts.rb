@@ -61,6 +61,10 @@ module Tumblargh
           end
         end
 
+        def post_author_portrait_url(size)
+          return "http://placekitten.com/#{size}/#{size}"
+        end
+
         def render
           if context.is_a? Resource::Post
             super
