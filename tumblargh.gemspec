@@ -3,7 +3,7 @@ require File.expand_path('../lib/tumblargh/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'tumblargh'
-  s.version     = Tumblargh::VERSION
+  s.version     = Tumblargh::VERSION.dup
   s.license     = 'MIT'
   s.summary     = 'Groan-less Tumblr theme development.'
   s.description = "Tumblargh aims to reduce suffering involved with building a theme by offering a way to fully develop, lint and test Tumblr themes locally, with real posts from any existing Tumblog."
