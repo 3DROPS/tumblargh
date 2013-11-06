@@ -43,11 +43,16 @@ module Tumblargh
 
         size = size.to_i
 
-        res = player.select do |p|
-          p[:width] == size
-        end
 
-        res.empty? ? nil : res.first[:embed_code]
+        if player.is_a? String
+          player
+        else
+          res = player.select do |p|
+            p[:width] == size
+          end
+
+          res.empty? ? nil : res.first[:embed_code]
+        end
       end
 
       def tags
