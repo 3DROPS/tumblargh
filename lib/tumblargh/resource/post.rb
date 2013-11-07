@@ -62,7 +62,7 @@ module Tumblargh
       end
 
       def notes
-        @notes || self.notes = API.notes(@blog.domain, :id => id)
+        @notes || self.notes = API::V2.notes(@blog.domain, :id => id)
         @notes
       end
 

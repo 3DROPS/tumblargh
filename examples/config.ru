@@ -4,7 +4,7 @@ require 'bundler/setup'
 
 require 'tumblargh'
 
-Tumblargh::API::set_api_key 'YOUR_TUMBLR_API_KEY'
+Tumblargh::API::V2::set_api_key 'YOUR_TUMBLR_API_KEY'
 
 map "/" do
 

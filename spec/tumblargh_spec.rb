@@ -35,14 +35,14 @@ describe Tumblargh do
     end
 
     it "should work by simply passing a tumblr domain" do
-      Tumblargh::API.set_api_key TUMBLR_API_KEY
+      Tumblargh::API::V2.set_api_key TUMBLR_API_KEY
 
       blog = Tumblargh.send(:create_blog, "staff.tumblr.com")
 
       blog.should be_an_instance_of Tumblargh::Resource::Blog
       blog.title.should eql "Tumblr Staff"
 
-      Tumblargh::API.set_api_key nil
+      Tumblargh::API::V2.set_api_key nil
     end
 
   end

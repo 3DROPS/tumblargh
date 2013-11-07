@@ -2,7 +2,7 @@ module Tumblargh
   module Resource
 
     class Blog < Base
-      
+
       attr_accessor :domain
 
       def initialize(domain, attrs=nil)
@@ -27,7 +27,7 @@ module Tumblargh
       end
 
       def fetch
-        API.blog(domain)
+        API::V2.blog(domain)
       end
 
       def fetch!
@@ -35,7 +35,7 @@ module Tumblargh
       end
 
       def posts
-        @posts || self.posts = API.posts(domain)
+        @posts || self.posts = API::V2.posts(domain)
         @posts # Whyyy??? Must I do this?
       end
 

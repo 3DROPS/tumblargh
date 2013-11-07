@@ -10,12 +10,12 @@ describe Tumblargh::Resource do
     end
 
     it "should not have to fall back to the API" do
-      Tumblargh::API.disable!
+      Tumblargh::API::V2.disable!
 
       blog = Tumblargh::Resource::Blog.new("staff.tumblr.com", @json)
       lambda { blog.posts }.should_not raise_error
 
-      Tumblargh::API.enable!
+      Tumblargh::API::V2.enable!
     end
 
   end
