@@ -73,8 +73,6 @@ module Tumblargh
         end
       end
 
-
-
       class Quote < Post
         def quote
           context.text
@@ -82,6 +80,7 @@ module Tumblargh
       end
 
       class Chat < Post
+
       end
 
       class Link < Post
@@ -206,26 +205,8 @@ module Tumblargh
         # TODO: Implementation
 
         def should_render?
-          false
+          !context.pages.empty?
         end
-      end
-
-      # Rendered for each custom page.
-      class Pages < Base
-        # TODO: Implementation
-
-        def should_render?
-          false
-        end
-
-        # custom page url
-        def url
-        end
-
-        # custom page name/label
-        def label
-        end
-
       end
 
       # Rendered if you have Twitter integration enabled.
@@ -291,6 +272,7 @@ module Tumblargh
       require 'tumblargh/renderer/blocks/posts'
       require 'tumblargh/renderer/blocks/reblogs'
       require 'tumblargh/renderer/blocks/tags'
+      require 'tumblargh/renderer/blocks/pages'
 
     end
   end

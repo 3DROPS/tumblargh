@@ -43,6 +43,15 @@ module Tumblargh
         @posts = ary.map { |p| Post.new(p, self) }
       end
 
+      def pages
+        @pages || self.pages = API::V1.pages(domain)
+        @pages
+      end
+
+      def pages=(ary)
+        @pages = ary.map { |p| Page.new(p, self) }
+      end
+
     end
 
   end

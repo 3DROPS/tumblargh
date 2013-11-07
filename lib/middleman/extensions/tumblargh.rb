@@ -6,7 +6,7 @@ module Middleman
       class << self
 
         def registered(app, options={})
-          ::Tumblargh::API::set_api_key(options[:api_key])
+          ::Tumblargh::API::V2::set_api_key(options[:api_key])
 
           app.after_configuration do
             unless build?
