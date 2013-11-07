@@ -8,7 +8,7 @@ module Tumblargh
       end
 
       def label
-        @attributes[:title] || "Page Title Missing"
+        @attributes[:link_title] || "Page Title Missing"
       end
 
       def url
