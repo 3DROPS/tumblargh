@@ -69,9 +69,16 @@ module Tumblargh
       opts = {}.with_indifferent_access
 
       doc = Nokogiri::HTML(html)
-      doc.css('meta[name*=":"]').each do |meta|
-        type, variable = meta['name'].downcase.split(':')
-        variable.gsub!(/\s/, '')
+      doc.css('meta').each do |meta|
+        next if !meta['name']
+        meta_name = meta['name'].downcase
+        type, variable = nil
+
+        if meta_name.include?(':')
+          type, variable = meta_name.split(':')
+        else
+          variable = meta_name
+        end
 
         default = meta['content']
 
@@ -82,10 +89,15 @@ module Tumblargh
           default
         end
 
-        opts[type] ||= {}
-        opts[type][variable] = default
+        if type
+          opts[type] ||= {}
+          opts[type][variable.gsub(/\s/, '')] = default
+        else
+          opts[variable.gsub(/\s/, '_')] = default
+        end
       end
 
+      puts "Got opts #{opts}"
       opts
     end
   end
