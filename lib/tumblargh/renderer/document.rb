@@ -8,7 +8,7 @@ module Tumblargh
       end
 
       def url
-        @config[:url]
+        options[:url]
       end
 
       # TAGS ----------

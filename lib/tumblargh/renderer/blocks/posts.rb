@@ -53,12 +53,7 @@ module Tumblargh
 
         def post_for_permalink
           link = perma
-
-          context.posts.each do |p|
-            if url_path(p.post_url) == link
-              return p
-            end
-          end
+          context.posts.detect { |post| post.post_url.include?(link) }
         end
 
         def post_author_portrait_url(size)
@@ -85,7 +80,7 @@ module Tumblargh
           if context.is_a? Resource::Post
             super
           else
-            posts = permalink? ? [post_for_permalink] : context.posts
+            posts = permalink? ? [post_for_permalink || content.posts.first] : context.posts
 
             posts.map do |post|
               post.context = self
