@@ -56,7 +56,11 @@ module Tumblargh
 
       def method_missing(method, *arguments)
         raise "Can't find anything to do with '#{method}'" if context.nil?
-        context.send(method, *arguments)
+        if @options.has_key?(method)
+          "\'#{@options[method]}\'"
+        else
+          context.send(method, *arguments)
+        end
       end
 
     end
