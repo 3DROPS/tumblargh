@@ -97,7 +97,6 @@ module Tumblargh
         end
       end
 
-      puts "Got opts #{opts}"
       opts
     end
   end

@@ -26,13 +26,8 @@ module Tumblargh
           audio_player(:black)
         end
 
-        def audio_embed(size)
-          player = context.player
-          if player.include? "assets.tumblr"
-            '<iframe class="tumblr_audio_player tumblr_audio_player_64979372506" src="http://posttypes.tumblr.com/post/64979372506/audio_player_iframe/posttypes/tumblr_mv6w8yzi521sm9w1y?audio_file=http%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Fposttypes%2F64979372506%2Ftumblr_mv6w8yzi521sm9w1y&amp;color=white" frameborder="0" allowtransparency="true" scrolling="no" width="640" height="169" style="-webkit-transform: translate3d(0px, 0px, 0px);"></iframe>'
-          else
-            player
-          end
+        def audio_embed(size = 500)
+          context.embed
         end
 
         # def raw_audio_url
