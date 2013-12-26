@@ -14,11 +14,12 @@ module Tumblargh
       # });
 
       class << self
-        def methodize(string = )
+        def methodize(string = "")
           string.downcase.gsub(" ", "_")
         end
 
-        def from_string(string = )
+        def from_string(string = "")
+          puts "METHOD #{self.methodize(string).to_sym}"
           self.send(self.methodize(string).to_sym)
         rescue NoMethodError
           nil
@@ -103,7 +104,7 @@ module Tumblargh
           "Chat post"
         end
 
-        def click_for_high-res_photo
+        def click_for_high_res_photo
           "View high resolution"
         end
 
@@ -187,11 +188,11 @@ module Tumblargh
           "Group members"
         end
 
-        def high-res
+        def high_res
           "High-res"
         end
 
-        def high-res_photo
+        def high_res_photo
           "High-res photo"
         end
 
