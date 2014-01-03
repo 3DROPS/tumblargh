@@ -29,6 +29,10 @@ module Tumblargh
         "#{context.url}rss"
       end
 
+      def portrait_url(size = 128)
+        "http://assets.tumblr.com/images/default_avatar/pyramid_open_#{size}.png"
+      end
+
       # Appearance options
       # http://www.tumblr.com/docs/en/custom_themes#appearance-options
       def color(key)
