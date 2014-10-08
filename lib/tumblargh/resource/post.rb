@@ -30,6 +30,10 @@ module Tumblargh
         photos.first.photo_url size
       end
 
+      def post_url
+        @attributes[:post_url]
+      end
+
       def video(size=500)
         return nil if (player.nil? || player.empty?)
 

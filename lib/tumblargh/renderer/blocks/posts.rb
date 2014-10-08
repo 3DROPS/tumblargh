@@ -14,8 +14,7 @@ module Tumblargh
         contextual_tag :caption
 
         def permalink
-          url = context.post_url
-          url.gsub(/^http:\/\/[^\/]+/, '')
+          url_path(context.url)
         end
 
         def permalink?
@@ -47,11 +46,21 @@ module Tumblargh
           end.join " "
         end
 
+        def post_for_permalink
+          link = permalink
+
+          context.posts.each do |p|
+            if url_path(p.post_url) == permalink
+              return p
+            end
+          end
+        end
+
         def render
           if context.is_a? Resource::Post
             super
           else
-            posts = permalink? ? [context.posts.first] : context.posts
+            posts = permalink? ? [post_for_permalink] : context.posts
 
             posts.map do |post|
               post.context = self
@@ -59,6 +68,12 @@ module Tumblargh
             end.flatten.join('')
           end
         end
+
+        private
+
+          def url_path(url="")
+            url.gsub(/^http:\/\/[^\/]+/, '')
+          end
 
       end
     end

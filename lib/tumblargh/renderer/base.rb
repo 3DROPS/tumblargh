@@ -23,6 +23,7 @@ module Tumblargh
       alias_method :config, :options # Backwards compatibility with old Document rendere
 
       def initialize(node, context, options = {})
+        puts "Context: #{context}"
         @node = node
         @context = context
         @options = options.with_indifferent_access

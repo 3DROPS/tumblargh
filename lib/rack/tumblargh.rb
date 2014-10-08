@@ -23,7 +23,7 @@ module Rack
 
       if should_parse?(status, headers)
         content = response.respond_to?(:body) ? response.body : response
-        render_opts = { :permalink => permalink?(env['PATH_INFO']) }
+        render_opts = { :permalink => permalink?(env['PATH_INFO']), :url =>  request.url}
 
         headers.delete('Content-Length')
         response = Rack::Response.new(
@@ -45,8 +45,8 @@ module Rack
     end
 
     def should_parse?(status, headers)
-      status == 200 && 
-      headers["Content-Type"] && 
+      status == 200 &&
+      headers["Content-Type"] &&
       headers["Content-Type"].include?("text/html")
     end
 

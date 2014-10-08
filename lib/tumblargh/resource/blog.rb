@@ -2,7 +2,7 @@ module Tumblargh
   module Resource
 
     class Blog < Base
-      
+
       attr_accessor :domain
 
       def initialize(domain, attrs=nil)

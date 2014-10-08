@@ -25,6 +25,10 @@ module Tumblargh
         "#{context.url}rss"
       end
 
+      def url
+        options[:url]
+      end
+
       # Appearance options
       # http://www.tumblr.com/docs/en/custom_themes#appearance-options
       def color(key)
