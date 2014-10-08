@@ -9,12 +9,10 @@ module Tumblargh
         end
 
         def label
-          puts context
           context.label
         end
 
         def render
-          puts "pages #{context}"
           if context.is_a? Resource::Page
             super
           else
